@@ -1,0 +1,17 @@
+{
+    "name": "gnut/my-app",
+    "description": "My Blog",
+    "authors": [
+        {
+            "name": "Gerald Col",
+            "email": "gnut@gnut.eu"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Router\\": "routes/",
+            "App\\": "app/"
+        }
+    },
+    "require": {}
+}
