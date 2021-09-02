@@ -20,6 +20,8 @@ class Route
         $pathToMatch = "#^$path$#";
         if (preg_match($pathToMatch,  $url, $matches)) {
             $this->matches = $matches;
+            //var_dump($matches);
+           // exit;
             return true;
         } else 
         {
@@ -32,7 +34,7 @@ class Route
         $params = explode('@', $this->action);
         $controller = new $params[0]();
         $method = $params[1];
-
+        //here I have to check that id is an int and greater than 0 otherwise I return a 404 error
         return isset($this->matches[1]) ? $controller->$method($this->matches[1]) : $controller->$method();
     }
 
