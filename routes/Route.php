@@ -2,6 +2,8 @@
 
 namespace Router;
 
+use Database\DBConnection;
+
 class Route
 {
     public $path;
@@ -32,7 +34,7 @@ class Route
     public function execute()
     {
         $params = explode('@', $this->action);
-        $controller = new $params[0]();
+        $controller = new $params[0](new DBConnection('myapp', 'localhost', 'root', ''));
         $method = $params[1];
         //here I have to check that id is an int and greater than 0 otherwise I return a 404 error
         return isset($this->matches[1]) ? $controller->$method($this->matches[1]) : $controller->$method();
