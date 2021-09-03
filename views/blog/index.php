@@ -5,9 +5,9 @@
     <div class="card mb-3">
         <div class="card-body">
         <h2><?= $post->title ?></h2>
-        <small><?= $post->created_at ?></small>
-        <p><?= $post->content ?></p>
-        <a href="<?= REPERT ?>/posts/<?= $post->id ?>" class="btn btn-primary">Lire plus</a>
+        <small class="badge-info">Publié le : <?= $post->getCreatedAt() ?></small>
+        <p><?= $post->getExcerpt() ?></p>
+        <?= $post->getButton() ?>
         </div>
     </div>
 <?php endforeach ?>
