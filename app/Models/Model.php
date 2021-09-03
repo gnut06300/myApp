@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Database\DBConnection;
-use stdClass;
+use PDO;
 
 abstract class Model
 {
@@ -18,12 +18,14 @@ abstract class Model
     public function all(): array
     {
         $stmat = $this->db->getPDO()->query("SELECT * FROM {$this->table} ORDER BY created_at DESC");
+        $stmat->setFetchMode(PDO::FETCH_CLASS, get_class($this),[$this->db]);
         return $stmat->fetchAll();
     }
 
-    public function findById(int $id): stdClass
+    public function findById(int $id): Model
     {
         $stmat = $this->db->getPDO()->prepare("SELECT * FROM {$this->table} WHERE id = ?");
+        $stmat->setFetchMode(PDO::FETCH_CLASS, get_class($this), [$this->db]);
         $stmat->execute([$id]);
         return $stmat->fetch();
     }
