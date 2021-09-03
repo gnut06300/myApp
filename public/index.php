@@ -11,10 +11,19 @@ define('VIEWS', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEP
 define('SCRIPTS', dirname($_SERVER['SCRIPT_NAME']) . DIRECTORY_SEPARATOR);
 //echo SCRIPTS;
 //exit;
+if($_SERVER['HTTP_HOST'] === 'localhost')
+{
+    define('REPERT', "/openclassrooms/myApp");
+}
+else
+{
+    define('REPERT', "");
+}
 
 $router = new Router($_GET['url']);
 
-$router->get('/', 'App\Controllers\BlogController@index');
+$router->get('/', 'App\Controllers\BlogController@welcome');
+$router->get('/posts', 'App\Controllers\BlogController@index');
 $router->get('/posts/:id', 'App\Controllers\BlogController@show');
 
 $router->run();
