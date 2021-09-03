@@ -3,7 +3,7 @@
 use Router\Router;
 
 require '../vendor/autoload.php';
-
+require '../env.php';
 // Defines a VIEWS constant
 // dirname Returns a parent directory's path
 define('VIEWS', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR);
@@ -11,14 +11,7 @@ define('VIEWS', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEP
 define('SCRIPTS', dirname($_SERVER['SCRIPT_NAME']) . DIRECTORY_SEPARATOR);
 //echo SCRIPTS;
 //exit;
-if($_SERVER['HTTP_HOST'] === 'localhost')
-{
-    define('REPERT', "/openclassrooms/myApp");
-}
-else
-{
-    define('REPERT', "");
-}
+
 
 $router = new Router($_GET['url']);
 
