@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Post;
+use App\Models\Tag;
 
 class BlogController extends Controller{
 
@@ -41,5 +42,14 @@ class BlogController extends Controller{
         $post = $stmat->fetch();
         */
         return $this->view('blog.show', compact('post')); //Create array containing variables and their values
+    }
+
+    public function tag(int $id)
+    {
+        //var_dump($id);
+        $tag = (new Tag($this->getDB()))->findById($id);
+
+        return $this->view('blog.tag', compact('tag'));
+
     }
 }
