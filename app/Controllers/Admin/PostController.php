@@ -15,12 +15,34 @@ class PostController extends Controller {
         return $this->view('admin.post.index', compact('posts'));
     }
 
+    public function create()
+    {
+        $tags = (new Tag($this->getDB()))->all();
+
+        return $this->view('admin.post.form', compact('tags'));
+    }
+
+    public function createPost()
+    {
+        $post = new Post($this->getDB());
+
+        // Pop the element off the end of array
+        $tags = array_pop($_POST);
+        //var_dump($_POST, $tags); die();
+
+        $result = $post->create($_POST, $tags);
+
+        if($result) {
+            return header('Location: ' . REPERT . '/admin/posts');
+        }
+    }
+
     public function edit(int $id)
     {
         $post = (new Post($this->getDB()))->findById($id);
         $tags = (new Tag($this->getDB()))->all();
 
-        return $this->view('admin.post.edit', compact('post', 'tags'));
+        return $this->view('admin.post.form', compact('post', 'tags'));
     }
 
     public function update(int $id)

@@ -1,6 +1,8 @@
 <?php $titlePage = 'Administration des Articles'; ?>
 <h1>Administration des Articles</h1>
 
+<a href="<?= REPERT ?>/admin/posts/create" class="btn btn-success my-3">Créer un nouvel article</a>
+
 <table class="table">
     <thead>
         <tr>
