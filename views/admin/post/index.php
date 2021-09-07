@@ -1,4 +1,4 @@
-<?= $titlePage = 'Administration des Articles' ?>
+<?php $titlePage = 'Administration des Articles'; ?>
 <h1>Administration des Articles</h1>
 
 <table class="table">
@@ -17,7 +17,7 @@
                 <td><?= $post->title ?></td>
                 <td><?= $post->getCreatedAt() ?></td>
                 <td>
-                    <a href="#" class="btn btn-warning">Modifier</a>
+                    <a href="<?= REPERT ?>/admin/posts/edit/<?= $post->id ?>" class="btn btn-warning">Modifier</a>
                     <form action="<?= REPERT ?>/admin/posts/delete/<?= $post->id ?>" method="post" class="d-inline">
                         <button class="btn btn-danger">Supprimer</button>
                     </form>
