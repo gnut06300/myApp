@@ -22,7 +22,7 @@ class DBConnection
 
     public function getPDO(): PDO
     {
-        // ternaire ?? php
+        // ternaire ?? php code to return if the test result is NULL
         return $this->pdo ?? $this->pdo = new PDO("mysql:dbname={$this->dbname};host={$this->host}", $this->username, $this->password, [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
