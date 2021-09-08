@@ -25,6 +25,13 @@
                     <a class="nav-link" href="<?= REPERT ?>/posts">Les derniers articles</a>
                 </li>
             </ul>
+            <ul class="navbar-nav ml-auto">
+                <?php if (isset($_SESSION['auth'])) : ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= REPERT ?>/logout">Se déconnecter</a>
+                </li>
+                <?php endif ?>
+            </ul>
         </div>
     </nav>
     <div class="container">

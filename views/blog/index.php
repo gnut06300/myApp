@@ -1,4 +1,5 @@
 <?php $titlePage='Mes Articles' ?>
+
 <h1>Les derniers articles</h1>
 <?php foreach ($params['posts'] as $post) : ?>
     <?php // var_dump($post) ; ?>
