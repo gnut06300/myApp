@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\User;
 use App\Validation\Validator;
 
+
 class UserController extends Controller
 {
 
