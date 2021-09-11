@@ -11,6 +11,18 @@
         <textarea name="content" id="content" rows="8" class="form-control"><?= $params['post']->content ?? '' ?></textarea>
     </div>
     <div class="form-group">
+        <label for="user_id">Example select</label>
+        <select class="form-control" id="user_id" name="user_id">
+            <?php foreach ($params['users'] as $user) : ?>
+                <option value="<?= $user->id ?>" 
+                <?php if (isset($params['post'])) {
+                    echo ($user->id === $params['post']->user_id) ? 'selected' : '';
+                }?>
+                ><?= $user->username ?></option>
+            <?php endforeach ?>
+        </select>
+    </div>
+    <div class="form-group">
         <label for="tags">Tags de l'article</label>
         <select multiple class="form-control" id="tags" name="tags[]">
 

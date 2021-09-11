@@ -35,12 +35,20 @@ HTML;
         ", [$this->id]);
     }
 
+    public function getAuthor()
+    {
+        return $this->query("
+        SELECT * FROM users
+        WHERE id = ?
+        ", [$this->user_id], true);
+    }
+
     public function create(array $data, ?array $relations = null)
     {
         parent::create($data);
-
+        
         $id = $this->db->getPDO()->lastInsertId();
-
+        //echo 'fin'; die();
         foreach ($relations as $tagId) {
             $stmt = $this->db->getPDO()->prepare("INSERT post_tag (post_id, tag_id) VALUES (?, ?)");
             $stmt->execute([$id, $tagId]);

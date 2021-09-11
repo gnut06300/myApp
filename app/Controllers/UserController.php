@@ -39,7 +39,7 @@ class UserController extends Controller
                 return header('Location: ' . REPERT . '/admin/posts?success=true');
             } else {
                 $_SESSION['errors'][] = [0 => ['Mauvais nom d\'utilisateur ou mot de passe']];
-                var_dump($_SESSION['errors']);
+                //var_dump($_SESSION['errors']);
                 return header('Location: ' . REPERT . '/login');
             }
         } else {

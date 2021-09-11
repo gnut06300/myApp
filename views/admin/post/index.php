@@ -13,6 +13,7 @@
             <th scope="col">#</th>
             <th scope="col">Titre</th>
             <th scope="col">Publié le</th>
+            <th scope="col">Auteur</th>
             <th scope="col">Actions</th>
         </tr>
     </thead>
@@ -20,8 +21,9 @@
         <?php foreach ($params['posts'] as $post) : ?>
             <tr>
                 <th scope="row"><?= $post->id ?></th>
-                <td><?= $post->title ?></td>
+                <td><?= htmlspecialchars($post->title) ?></td>
                 <td><?= $post->getCreatedAt() ?></td>
+                <td><?= htmlspecialchars($post->getAuthor()->username) ?></td>
                 <td>
                     <a href="<?= REPERT ?>/admin/posts/edit/<?= $post->id ?>" class="btn btn-warning">Modifier</a>
                     <form action="<?= REPERT ?>/admin/posts/delete/<?= $post->id ?>" method="post" class="d-inline">

@@ -40,7 +40,7 @@ abstract class Model
             $i++;
         }
 
-        // var_dump($firstParenthesis, $secondParenthesis); die();
+        //var_dump($firstParenthesis, $secondParenthesis); die();
 
         return $this->query("INSERT INTO {$this->table} ($firstParenthesis) 
         VALUE ($secondParenthesis)", $data);
@@ -78,11 +78,12 @@ abstract class Model
             || strpos($sql, 'UPDATE') === 0
             || strpos($sql, 'INSERT') === 0
         ) {
-            /*
-            var_dump([$param]);
-            exit
-            */
+            
+            //var_dump($param);
+            //die();
+            
             $stmt = $this->db->getPDO()->$method($sql);
+            // echo $sql .''. var_dump($param); die();
             // setFetchMode — Set the default fetch mode for this statement
             $stmt->setFetchMode(PDO::FETCH_CLASS, get_class($this), [$this->db]);
             return $stmt->execute($param);

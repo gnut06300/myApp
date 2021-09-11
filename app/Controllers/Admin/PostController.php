@@ -5,6 +5,7 @@ namespace App\Controllers\Admin;
 use App\Controllers\Controller;
 use App\Models\Post;
 use App\Models\Tag;
+use App\Models\User;
 
 class PostController extends Controller {
 
@@ -22,8 +23,9 @@ class PostController extends Controller {
         $this->IsAdmin();
 
         $tags = (new Tag($this->getDB()))->all();
+        $users = (new User($this->getDB()))->all();
 
-        return $this->view('admin.post.form', compact('tags'));
+        return $this->view('admin.post.form', compact('tags', 'users'));
     }
 
     public function createPost()
@@ -31,7 +33,7 @@ class PostController extends Controller {
         $this->IsAdmin();
 
         $post = new Post($this->getDB());
-
+        //var_dump($_POST);
         // Pop the element off the end of array
         $tags = array_pop($_POST);
         //var_dump($_POST, $tags); die();
@@ -49,8 +51,10 @@ class PostController extends Controller {
         
         $post = (new Post($this->getDB()))->findById($id);
         $tags = (new Tag($this->getDB()))->all();
+        $users = (new User($this->getDB()))->all();
 
-        return $this->view('admin.post.form', compact('post', 'tags'));
+        // compact — Create array containing variables and their values
+        return $this->view('admin.post.form', compact('post', 'tags', 'users'));
     }
 
     public function update(int $id)
