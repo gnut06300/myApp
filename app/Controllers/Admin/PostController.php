@@ -33,9 +33,15 @@ class PostController extends Controller {
         $this->IsAdmin();
 
         $post = new Post($this->getDB());
-        //var_dump($_POST);
+
+        if (isset($_POST['tags'])){
+            $tags = array_pop($_POST);
+        }
+        else{
+            $tags=[];
+        }
+        //var_dump($_POST); die();
         // Pop the element off the end of array
-        $tags = array_pop($_POST);
         //var_dump($_POST, $tags); die();
 
         $result = $post->create($_POST, $tags);
@@ -64,7 +70,12 @@ class PostController extends Controller {
         $post = new Post($this->getDB());
 
         // Pop the element off the end of array
-        $tags = array_pop($_POST);
+        if (isset($_POST['tags'])){
+            $tags = array_pop($_POST);
+        }
+        else{
+            $tags=[];
+        }
         //var_dump($_POST, $tags); die();
 
         $result = $post->update($id, $_POST, $tags);

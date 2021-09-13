@@ -10,4 +10,15 @@ class User extends Model{
     {
         return $this->query("SELECT * FROM {$this->table} WHERE username = ?", [$username], true);
     }
+
+    public function create(array $data, ?array $relations = null)
+    {
+        parent::create($data);
+        
+        $id = $this->db->getPDO()->lastInsertId();
+        $user = $this->query("SELECT * FROM {$this->table} WHERE id = ?", [$id], true);
+        $_SESSION['username'] = $user->username;
+        return true;
+
+    }
 }

@@ -26,11 +26,18 @@
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
-                <?php if (isset($_SESSION['auth'])) : ?>
+                <?php if (isset($_SESSION['auth']) || isset($_SESSION['username'])) : ?>
                     <li class="nav-item">
                         <a class="nav-link" href="<?= REPERT ?>/logout">Se déconnecter</a>
                     </li>
-                <?php endif ?>
+                <?php else : ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= REPERT ?>/registration">S'inscrire</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= REPERT ?>/login">Se connecter</a>
+                    </li>
+                <?php endif; ?>
             </ul>
         </div>
     </nav>
@@ -40,8 +47,8 @@
     <footer class="bg-light py-4 mt-5">
         <div class="container">
             <div class="row">
-            <div class="col-12 col-sm-9 text-center">&copy; Copyright : <a href="https://gnut.eu" target="_blank">Gnut.eu</a> - 2021</div>
-            <div class="col-12 col-sm-3 text-center"><a href="<?= REPERT ?>/admin/posts">Administration</a></div>
+                <div class="col-12 col-sm-9 text-center">&copy; Copyright : <a href="https://gnut.eu" target="_blank">Gnut.eu</a> - 2021</div>
+                <div class="col-12 col-sm-3 text-center"><a href="<?= REPERT ?>/admin/posts">Administration</a></div>
             </div>
         </div>
     </footer>

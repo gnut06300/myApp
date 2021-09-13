@@ -7,6 +7,7 @@ use Throwable;
 
 class NotFoundException extends Exception {
 
+    // Throwable is the base interface for any object that can be thrown via a throw statement, including Error and Exception.
     public function __construct($message = "", $code = 0, ?Throwable $previous = null)
     {
         parent::__construct($message, $code, $previous);

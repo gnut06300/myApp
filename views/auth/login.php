@@ -1,11 +1,16 @@
 <?php $titlePage = 'Se connecter' ?>
 
-<?php if (isset($_SESSION['errors'])): ?>
+<?php if (isset($_SESSION['username'])) : ?>
+    <div class="alert alert-success">
+        <li>Bienvenue <?= $_SESSION['username'] ?></li>
+    </div>
+<?php endif ?>
+<?php if (isset($_SESSION['errors'])) : ?>
 
     <?php foreach ($_SESSION['errors'] as $errorsArray) : ?>
-        <?php foreach($errorsArray as $errors): ?>
+        <?php foreach ($errorsArray as $errors) : ?>
             <div class="alert alert-danger">
-                <?php foreach($errors as $error): ?>
+                <?php foreach ($errors as $error) : ?>
                     <li><?= $error ?></li>
                 <?php endforeach ?>
             </div>

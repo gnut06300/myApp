@@ -22,6 +22,8 @@ $router->get('/posts/:id', 'App\Controllers\BlogController@show');
 $router->get('/tags/:id', 'App\Controllers\BlogController@tag');
 
 $router->get('/login', 'App\Controllers\UserController@login');
+$router->get('/registration', 'App\Controllers\UserController@registration');
+$router->post('/registration', 'App\Controllers\UserController@creationUser');
 $router->post('/login', 'App\Controllers\UserController@loginPost');
 $router->get('/logout', 'App\Controllers\UserController@logout');
 
