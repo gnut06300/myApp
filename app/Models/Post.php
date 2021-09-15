@@ -48,10 +48,30 @@ HTML;
         ", [$this->user_id], true);
     }
 
+    public function getComments()
+    {
+        return $this->query("
+        SELECT * FROM comments
+        WHERE post_id = ? AND checked = 1
+        ", [$this->id]);
+    }
+
+    public function getAuthorComment(int $user_id)
+    {
+        return $this->query("
+        SELECT * FROM users
+        WHERE id = ?
+        ", [$user_id], true);
+    }
+    public function getDateFrench($dateTime)
+    {
+        return (new DateTime($dateTime))->format('d/m/Y à H:i');
+    }
+
     public function create(array $data, ?array $relations = null)
     {
         parent::create($data);
-        
+
         $id = $this->db->getPDO()->lastInsertId();
         //echo 'fin'; die();
         foreach ($relations as $tagId) {
@@ -60,7 +80,6 @@ HTML;
         }
 
         return true;
-
     }
 
     public function update(int $id, array $data, ?array $relations = null)
@@ -74,7 +93,7 @@ HTML;
             $stmt->execute([$id, $tagId]);
         }
 
-        if($result){
+        if ($result) {
             return true;
         }
     }

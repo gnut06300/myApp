@@ -22,8 +22,16 @@
                     <a class="nav-link" href="<?= REPERT ?>/">Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= REPERT ?>/posts">Les derniers articles</a>
+                    <a class="nav-link" href="<?= REPERT ?>/posts">Tous les articles</a>
                 </li>
+                <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] === 1) : ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= REPERT ?>/admin/posts">Admin Articles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= REPERT ?>/admin/posts">Admin Commentaires</a>
+                    </li>
+                <?php endif ?>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <?php if (isset($_SESSION['auth']) || isset($_SESSION['username'])) : ?>

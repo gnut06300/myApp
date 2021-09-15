@@ -75,12 +75,12 @@ class UserController extends Controller
         if ($user) {
             if (password_verify($_POST['password'], $user->password)) {
                 //var_dump($user->admin); die(); //$ user-> admin returns a string we add (int) to transform it into int           
+                $_SESSION['username'] = $user->username;
                 $_SESSION['auth'] = (int) $user->admin;
                 if ($_SESSION['auth'] === 1){
                     return header('Location: ' . REPERT . '/admin/posts?success=true');
                 }
                 elseif($_SESSION['auth'] === 0){
-                    $_SESSION['username'] = $user->username;
                     return header('Location: ' . REPERT . '/');
                 }
             } else {
