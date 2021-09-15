@@ -61,7 +61,7 @@ abstract class Model
 
         $data['id'] = $id;
 
-        return $this->query("UPDATE {$this->table} SET {$sqlRequestPart} WHERE id = :id", $data);
+        return $this->query("UPDATE {$this->table} SET {$sqlRequestPart}, updated_at = NOW() WHERE id = :id", $data);
     }
 
     public function destroy(int $id): bool

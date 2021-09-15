@@ -7,6 +7,6 @@
         <span class="badge badge-info"><?= $tag->name ?></span>
     <?php endforeach ?>
 </div>
-<small class="text-info">Publié le : <?= $params['post']->getCreatedAt() ?> par </small><b><?= $params['post']->getAuthor()->username ?></b>
+<small class="text-info">Publié le : <?= $params['post']->getCreatedAt() ?> <?= ($params['post']->created_at != $params['post']->updated_at) ? '- Modifié le :' . $params['post']->getUpdatedAt() : "" ?> par </small><b><?= $params['post']->getAuthor()->username ?></b>
 <p><?= nl2br(htmlspecialchars($params['post']->content)) ?></p>
 <a href="<?= REPERT ?>/posts" class="btn btn-secondary">Retouner en arrière</a>

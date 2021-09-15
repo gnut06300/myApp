@@ -13,6 +13,11 @@ class Post extends Model
         return (new DateTime($this->created_at))->format('d/m/Y à H:i');
     }
 
+    public function getUpdatedAt(): string
+    {
+        return (new DateTime($this->updated_at))->format('d/m/Y à H:i');
+    }
+
     public function getExcerpt(): string
     {
         return substr($this->content, 0, 200) . '...';
