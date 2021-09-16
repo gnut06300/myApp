@@ -2,8 +2,10 @@
 
 namespace App\Controllers;
 
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Tag;
+use App\Validation\Validator;
 
 class BlogController extends Controller{
 
@@ -42,6 +44,37 @@ class BlogController extends Controller{
         $post = $stmat->fetch();
         */
         return $this->view('blog.show', compact('post')); //Create array containing variables and their values
+    }
+
+    public function createComment(int $id)
+    {
+        $validator = new Validator($_POST);
+        $errors = $validator->validate([
+            'content' => ['required', 'min:4'],
+        ]);
+
+        if ($errors) {
+            $_SESSION['errors'][] = $errors;
+            header('Location: ' . REPERT . '/posts//'.$id);
+            exit;
+        }
+
+        $data = [
+            'post_id' => $id,
+            'user_id' => $_SESSION['user_id'],
+            'content' => $_POST['content']
+        ];
+
+        $comment = new Comment($this->getDB());
+        $result = $comment->create($data);
+
+        if($result) {
+            return header('Location: ' . REPERT . '/posts//'.$id.'?comment=created');
+        }
+
+        $post = new Post($this->getDB());
+        $post = $post->findById($id);
+        return $this->view('blog.show', compact('post'));
     }
 
     public function tag(int $id)
