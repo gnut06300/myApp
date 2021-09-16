@@ -29,7 +29,7 @@
                         <a class="nav-link" href="<?= REPERT ?>/admin/posts">Admin Articles</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= REPERT ?>/admin/posts">Admin Commentaires</a>
+                        <a class="nav-link" href="<?= REPERT ?>/admin/comments">Admin Commentaires</a>
                     </li>
                 <?php endif ?>
             </ul>

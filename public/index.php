@@ -34,6 +34,12 @@ $router->post('/admin/posts/create', 'App\Controllers\Admin\PostController@creat
 $router->post('/admin/posts/delete/:id', 'App\Controllers\Admin\PostController@destroy');
 $router->get('/admin/posts/edit/:id', 'App\Controllers\Admin\PostController@edit');
 $router->post('/admin/posts/edit/:id', 'App\Controllers\Admin\PostController@update');
+$router->get('/admin/comments', 'App\Controllers\Admin\CommentController@index');
+$router->post('/admin/comments/delete/:id', 'App\Controllers\Admin\CommentController@destroy');
+$router->get('/admin/comments/edit/:id', 'App\Controllers\Admin\CommentController@edit');
+$router->post('/admin/comments/edit/:id', 'App\Controllers\Admin\CommentController@update');
+$router->post('/admin/comments/checked/:id', 'App\Controllers\Admin\CommentController@checked');
+$router->post('/admin/comments/nochecked/:id', 'App\Controllers\Admin\CommentController@noChecked');
 
 try {
     $router->run();

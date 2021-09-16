@@ -11,7 +11,7 @@
         <textarea name="content" id="content" rows="8" class="form-control"><?= $params['post']->content ?? '' ?></textarea>
     </div>
     <div class="form-group">
-        <label for="user_id">Example select</label>
+        <label for="user_id">Auteur</label>
         <select class="form-control" id="user_id" name="user_id">
             <?php foreach ($params['users'] as $user) : ?>
                 <option value="<?= $user->id ?>" 
