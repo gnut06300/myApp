@@ -76,6 +76,7 @@ class UserController extends Controller
             if (password_verify($_POST['password'], $user->password)) {
                 //var_dump($user->admin); die(); //$ user-> admin returns a string we add (int) to transform it into int           
                 $_SESSION['username'] = $user->username;
+                $_SESSION['user_email'] = $user->email;
                 $_SESSION['user_id'] = (int) $user->id;
                 $_SESSION['auth'] = (int) $user->admin;
                 if ($_SESSION['auth'] === 1){

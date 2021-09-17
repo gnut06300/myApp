@@ -53,6 +53,7 @@ HTML;
         return $this->query("
         SELECT * FROM comments
         WHERE post_id = ? AND checked = 1
+        ORDER BY created_at DESC
         ", [$this->id]);
     }
 

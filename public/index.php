@@ -22,11 +22,14 @@ $router->get('/posts/:id', 'App\Controllers\BlogController@show');
 $router->post('/posts/:id', 'App\Controllers\BlogController@createComment');
 $router->get('/tags/:id', 'App\Controllers\BlogController@tag');
 
+$router->get('/contact', 'App\Controllers\ContactController@contactForm');
+$router->post('/contact', 'App\Controllers\ContactController@postContactForm');
+
 $router->get('/login', 'App\Controllers\UserController@login');
 $router->get('/registration', 'App\Controllers\UserController@registration');
 $router->post('/registration', 'App\Controllers\UserController@creationUser');
-$router->post('/login', 'App\Controllers\UserController@loginPost');
 $router->get('/logout', 'App\Controllers\UserController@logout');
+$router->post('/login', 'App\Controllers\UserController@loginPost');
 
 $router->get('/admin/posts', 'App\Controllers\Admin\PostController@index');
 $router->get('/admin/posts/create', 'App\Controllers\Admin\PostController@create');
@@ -34,6 +37,7 @@ $router->post('/admin/posts/create', 'App\Controllers\Admin\PostController@creat
 $router->post('/admin/posts/delete/:id', 'App\Controllers\Admin\PostController@destroy');
 $router->get('/admin/posts/edit/:id', 'App\Controllers\Admin\PostController@edit');
 $router->post('/admin/posts/edit/:id', 'App\Controllers\Admin\PostController@update');
+
 $router->get('/admin/comments', 'App\Controllers\Admin\CommentController@index');
 $router->post('/admin/comments/delete/:id', 'App\Controllers\Admin\CommentController@destroy');
 $router->get('/admin/comments/edit/:id', 'App\Controllers\Admin\CommentController@edit');

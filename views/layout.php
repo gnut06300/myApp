@@ -24,6 +24,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<?= REPERT ?>/posts">Tous les articles</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= REPERT ?>/contact">Contact</a>
+                </li>
                 <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] === 1) : ?>
                     <li class="nav-item">
                         <a class="nav-link" href="<?= REPERT ?>/admin/posts">Admin Articles</a>
