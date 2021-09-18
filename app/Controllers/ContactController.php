@@ -28,8 +28,7 @@ class ContactController extends Controller
 
         //echo "<p>L'utilisateur ayant pour prénom : " . $_POST['firstname'] . " et pour nom " . $_POST['name'] . "<br> -Comme ". $_POST['username'] ."<br> -Comme Email : " . $_POST['email'] . "<br> -Son Message est : " . $_POST['message'] . "</p>" ; die();
         //@ permet de masquer le message d'erreur
-        if (@mail("gnut@gnut.eu", 'Demande de contact sur le blog de Gnut', "<p>- L'utilisateur ayant pour prénom : " . $_POST['firstname'] . " et pour nom : " . $_POST['name'] . "<br> - Comme nom d'utilisateur : " . $_POST['username'] . "<br> -Comme Email : " . $_POST['email'] . "<br> - Son Message est : " . $_POST['message'] . "</p>", 'Content-Type: text/html; charset="utf-8"')) {
-            //if(@mail("gnut@gnut.eu", 'Demande de contact sur le blog de Gnut', "test", 'Content-Type: text/html; charset="utf-8"')) {
+        if (@mail("gnut@gnut.eu", 'Demande de contact sur le blog de Gnut', "<p>- L'utilisateur ayant pour prénom : " . $_POST['firstname'] . " et pour nom : " . $_POST['name'] . "<br> - Comme nom d'utilisateur : " . $_POST['username'] . "<br> - Comme Email : " . $_POST['email'] . "<br> - Son Message est : " . $_POST['message'] . "</p>", 'Content-Type: text/html; charset="utf-8"')) {
             $_SESSION['errors'][] = ['message' => ['Votre message a bien été envoyé']];
             header('Location: ' . REPERT . '/contact');
         } else {
