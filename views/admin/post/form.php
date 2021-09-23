@@ -7,6 +7,10 @@
         <input type="text" class="form-control" name="title" id="title" value="<?= $params['post']->title ?? '' ?>">
     </div>
     <div class="form-group">
+        <label for="chapo">Contenu de l'article</label>
+        <textarea name="chapo" id="chapo" rows="3" class="form-control"><?= $params['post']->chapo ?? '' ?></textarea>
+    </div>
+    <div class="form-group">
         <label for="content">Contenu de l'article</label>
         <textarea name="content" id="content" rows="8" class="form-control"><?= $params['post']->content ?? '' ?></textarea>
     </div>

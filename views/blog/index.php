@@ -12,7 +12,7 @@
             <?php endforeach ?>
         </div>
         <small class="text-info">Publié le : <?= $post->getCreatedAt() ?> par </small><b><?= $post->getAuthor()->username ?></b>
-        <p><?= htmlspecialchars($post->getExcerpt()) ?></p>
+        <p><?= htmlspecialchars($post->chapo) ?></p>
         <p class="text-right text-info"><small>Modifié le : <?= $post->getUpdatedAt() ?></small></p>
         <?= $post->getButton() ?>
         </div>

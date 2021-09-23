@@ -27,6 +27,7 @@ $router->post('/contact', 'App\Controllers\ContactController@postContactForm');
 
 $router->get('/login', 'App\Controllers\UserController@login');
 $router->get('/registration', 'App\Controllers\UserController@registration');
+$router->get('/checked/:id', 'App\Controllers\UserController@checked');
 $router->post('/registration', 'App\Controllers\UserController@creationUser');
 $router->get('/logout', 'App\Controllers\UserController@logout');
 $router->post('/login', 'App\Controllers\UserController@loginPost');

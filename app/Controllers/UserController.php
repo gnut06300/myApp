@@ -54,6 +54,32 @@ class UserController extends Controller
         }
     }
 
+    public function checked(int $id)
+    {
+        $user = (new User($this->getDB()))->findById($id);
+
+        $token=sha1($user->id.$user->username.$user->email);
+       
+        if($_GET['token'] == $token){
+
+            //$user1 = new User($this->getDB());          
+            $data=['checked' => 1];
+    
+            $result = $user->update($id, $data);
+    
+            if($result) {
+                $_SESSION['errors'][] = ['email' => ['Merci, votre email à bien été vérifié, votre inscription est finie']];
+                return header('Location: ' . REPERT . '/login');
+            }
+
+        }else{
+            
+            $_SESSION['errors'][] = ['email' => ['Votre lien n\'est pas valide, veuillez contacter l\'administrateur']];
+            return header('Location: ' . REPERT . '/login');
+        }
+    
+    }
+
     public function loginPost()
     {
         $validator = new Validator($_POST);
@@ -74,16 +100,22 @@ class UserController extends Controller
         //var_dump($user); die();// we check if the password is correct
         if ($user) {
             if (password_verify($_POST['password'], $user->password)) {
-                //var_dump($user->admin); die(); //$ user-> admin returns a string we add (int) to transform it into int           
-                $_SESSION['username'] = $user->username;
-                $_SESSION['user_email'] = $user->email;
-                $_SESSION['user_id'] = (int) $user->id;
-                $_SESSION['auth'] = (int) $user->admin;
-                if ($_SESSION['auth'] === 1){
-                    return header('Location: ' . REPERT . '/admin/posts?success=true');
-                }
-                elseif($_SESSION['auth'] === 0){
-                    return header('Location: ' . REPERT . '/');
+                if($user->checked == 1){
+                    //var_dump($user->admin); die(); //$ user-> admin returns a string we add (int) to transform it into int           
+                    $_SESSION['username'] = $user->username;
+                    $_SESSION['user_email'] = $user->email;
+                    $_SESSION['user_id'] = (int) $user->id;
+                    $_SESSION['auth'] = (int) $user->admin;
+                    if ($_SESSION['auth'] === 1){
+                        return header('Location: ' . REPERT . '/admin/posts?success=true');
+                    }
+                    elseif($_SESSION['auth'] === 0){
+                        return header('Location: ' . REPERT . '/');
+                    }
+                }else{
+                    $_SESSION['errors'][] = ['email' => ['Vous devez valider le lien de vérification de votre email avant de pouvoir vous connecter']];
+                
+                    return header('Location: ' . REPERT . '/login');
                 }
             } else {
                 $_SESSION['errors'][] = [0 => ['Mauvais nom d\'utilisateur ou mot de passe']];

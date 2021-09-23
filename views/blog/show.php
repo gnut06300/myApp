@@ -13,7 +13,7 @@ $titlePage = 'Article : ' . $params['post']->id ?>
             <span class="badge badge-success"><a href="<?= REPERT ?>/tags/<?= $tag->id ?>" class="text-white"><?= $tag->name ?></a></span>
         <?php endforeach ?>
     </div>
-    <p class="mt-3"><?= htmlspecialchars($params['post']->getExcerpt()) ?></p>
+    <p class="mt-3"><b><?= htmlspecialchars($params['post']->chapo) ?></b></p>
     <small class="text-info">Publié le : <?= $params['post']->getCreatedAt() ?> <?= ($params['post']->created_at != $params['post']->updated_at) ? '- Modifié le :' . $params['post']->getUpdatedAt() : "" ?> par </small><b><?= $params['post']->getAuthor()->username ?></b>
     <p><?= nl2br(htmlspecialchars($params['post']->content)) ?></p>
 </div>
