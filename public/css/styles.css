@@ -7,3 +7,63 @@
     margin: 10px;
     box-shadow: 10px 7px 10px gray;
 }
+.logo_small {
+    height: 26px;
+}
+.banner {
+	margin :0;
+	padding: 0;
+	position: relative;
+}
+.banniere img {
+	width: 100%;
+	max-width: 100%;
+	margin : 0px auto 20px auto;
+}
+.inner-banner{
+	position: absolute;
+	top :18%;
+	left: 0;
+	width: 100%;
+	text-align: center;
+}
+.logo {
+    width: 45%;
+    margin-bottom: 10px;
+    filter : drop-shadow(10px 5px 5px #000000) ;
+}
+.titlePage {
+    text-shadow: 10px 5px 12px #000000 ;
+    color : #fff;
+}
+.inner-banner .btn-custom{
+	background-color: #0275D8;
+	color: #ffffff ;
+	box-shadow: 2px 2px 30px #000000 ;
+}
+.inner-banner .btn-custom:hover{
+	color: #2c3e50;
+}
+/* Début Google map */
+.google-map{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.map-responsive{
+	margin:0;
+	overflow:hidden;
+    padding-bottom:20%;
+    position:relative;
+    
+}
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+/* Fin Google map*/
+.liens{
+    font-size: 24px;
+}
