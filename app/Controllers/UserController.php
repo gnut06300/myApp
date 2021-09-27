@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\User;
 use App\Validation\Validator;
+use App\Exceptions\NotFoundException;
 
 
 class UserController extends Controller
@@ -58,24 +59,30 @@ class UserController extends Controller
     {
         $user = (new User($this->getDB()))->findById($id);
 
-        $token=sha1($user->id.$user->username.$user->email);
-       
-        if($_GET['token'] == $token){
-
-            //$user1 = new User($this->getDB());          
-            $data=['checked' => 1];
+        if($user){
+            $token=sha1($user->id.$user->username.$user->email);
+           
+            if($_GET['token'] == $token){
     
-            $result = $user->update($id, $data);
+                //$user1 = new User($this->getDB());          
+                $data=['checked' => 1];
+        
+                $result = $user->update($id, $data);
+        
+                if($result) {
+                    $_SESSION['errors'][] = ['email' => ['Merci, votre email à bien été vérifié, votre inscription est finie']];
+                    return header('Location: ' . REPERT . '/login');
+                }
     
-            if($result) {
-                $_SESSION['errors'][] = ['email' => ['Merci, votre email à bien été vérifié, votre inscription est finie']];
+            }else{
+                
+                $_SESSION['errors'][] = ['email' => ['Votre lien n\'est pas valide, veuillez contacter l\'administrateur']];
                 return header('Location: ' . REPERT . '/login');
             }
 
         }else{
-            
-            $_SESSION['errors'][] = ['email' => ['Votre lien n\'est pas valide, veuillez contacter l\'administrateur']];
-            return header('Location: ' . REPERT . '/login');
+            $exception = new NotFoundException();
+            return $exception->error404();
         }
     
     }

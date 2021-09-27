@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Exceptions\NotFoundException;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Tag;
@@ -38,12 +39,18 @@ class BlogController extends Controller{
         */
         $post = new Post($this->getDB());
         $post = $post->findById($id);
+        if($post){
+            return $this->view('blog.show', compact('post')); //Create array containing variables and their values
+
+        }else{
+            $exception = new NotFoundException();
+            return $exception->error404();
+        }
         /*
         $stmat = $this->db->getPDO()->prepare('SELECT * FROM posts WHERE id = ?');
         $stmat->execute([$id]);
         $post = $stmat->fetch();
         */
-        return $this->view('blog.show', compact('post')); //Create array containing variables and their values
     }
 
     public function createComment(int $id)
@@ -81,8 +88,12 @@ class BlogController extends Controller{
     {
         //var_dump($id);
         $tag = (new Tag($this->getDB()))->findById($id);
-
-        return $this->view('blog.tag', compact('tag'));
+        if($tag){
+            return $this->view('blog.tag', compact('tag'));
+        }else{
+            $exception = new NotFoundException();
+            return $exception->error404();
+        }
 
     }
 }
