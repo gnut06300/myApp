@@ -21,20 +21,20 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= REPERT ?>/">Accueil</a>
+                    <a class="nav-link" href="<?= REPERT ?>/"><i class="fas fa-home"></i> Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= REPERT ?>/posts">Tous les articles</a>
+                    <a class="nav-link" href="<?= REPERT ?>/posts"><i class="fas fa-blog"></i> Tous les articles</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= REPERT ?>/contact">Contact</a>
+                    <a class="nav-link" href="<?= REPERT ?>/contact"><i class="fas fa-file-contract"></i> Contact</a>
                 </li>
                 <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] === 1) : ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= REPERT ?>/admin/posts">Admin Articles</a>
+                        <a class="nav-link" href="<?= REPERT ?>/admin/posts"><i class="fas fa-user-lock"></i> Admin Articles</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= REPERT ?>/admin/comments">Admin Commentaires</a>
+                        <a class="nav-link" href="<?= REPERT ?>/admin/comments"><i class="fas fa-user-lock"></i> Admin Commentaires</a>
                     </li>
                 <?php endif ?>
             </ul>
@@ -45,10 +45,10 @@
                     </li>
                 <?php else : ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= REPERT ?>/registration">S'inscrire</a>
+                        <a class="nav-link" href="<?= REPERT ?>/registration"><i class="fas fa-registered"></i> S'inscrire</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= REPERT ?>/login">Se connecter</a>
+                        <a class="nav-link" href="<?= REPERT ?>/login"><i class="fas fa-paperclip"></i> Se connecter</a>
                     </li>
                 <?php endif; ?>
             </ul>
