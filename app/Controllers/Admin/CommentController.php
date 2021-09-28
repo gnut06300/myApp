@@ -2,9 +2,10 @@
 
 namespace App\Controllers\Admin;
 
-use App\Controllers\Controller;
-use App\Models\Comment;
 use App\Models\User;
+use App\Models\Comment;
+use App\Controllers\Controller;
+use App\Exceptions\NotFoundException;
 
 class CommentController extends Controller
 {
@@ -21,8 +22,13 @@ class CommentController extends Controller
         $this->IsAdmin();
 
         $comment = (new Comment($this->getDB()))->findById($id);
-        $users = (new User($this->getDB()))->all();
-        return $this->view('admin.comment.form', compact('comment', 'users'));
+        if($comment){
+            $users = (new User($this->getDB()))->all();
+            return $this->view('admin.comment.form', compact('comment', 'users'));
+        }else{
+            $exception = new NotFoundException();
+            return $exception->error404();
+        }
     }
 
     public function update(int $id)

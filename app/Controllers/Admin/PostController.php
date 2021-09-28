@@ -2,10 +2,11 @@
 
 namespace App\Controllers\Admin;
 
-use App\Controllers\Controller;
-use App\Models\Post;
 use App\Models\Tag;
+use App\Models\Post;
 use App\Models\User;
+use App\Controllers\Controller;
+use App\Exceptions\NotFoundException;
 
 class PostController extends Controller {
 
@@ -56,11 +57,16 @@ class PostController extends Controller {
         $this->IsAdmin();
         
         $post = (new Post($this->getDB()))->findById($id);
-        $tags = (new Tag($this->getDB()))->all();
-        $users = (new User($this->getDB()))->all();
-
-        // compact — Create array containing variables and their values
-        return $this->view('admin.post.form', compact('post', 'tags', 'users'));
+        if($post){
+            $tags = (new Tag($this->getDB()))->all();
+            $users = (new User($this->getDB()))->all();
+    
+            // compact — Create array containing variables and their values
+            return $this->view('admin.post.form', compact('post', 'tags', 'users'));
+        }else{
+            $exception = new NotFoundException();
+            return $exception->error404();
+        }
     }
 
     public function update(int $id)
