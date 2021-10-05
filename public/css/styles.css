@@ -1,12 +1,12 @@
 .me {
-    float: right;
-    width: 200px;
-    margin: 10px;
-    box-shadow: 10px 7px 10px gray;
+        float: right;
+        width: 200px;
+        margin: 10px;
+        box-shadow: 10px 7px 10px gray;
 }
 
 .logo_small {
-    height: 26px;
+        height: 26px;
 }
 
 .banner {
