@@ -1,8 +1,6 @@
 <?php
 
-use App\Models\Comment;
-
-$titlePage = 'Article : ' . $params['post']->id ?>
+$titlePage = $params['post']->title ?>
 <?php // var_dump($params['post']) 
 ?>
 
