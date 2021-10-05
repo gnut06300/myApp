@@ -25,10 +25,10 @@ class CommentController extends Controller
         if($comment){
             $users = (new User($this->getDB()))->all();
             return $this->view('admin.comment.form', compact('comment', 'users'));
-        }else{
-            $exception = new NotFoundException();
-            return $exception->error404();
         }
+        $exception = new NotFoundException();
+        return $exception->error404();
+        
     }
 
     public function update(int $id)

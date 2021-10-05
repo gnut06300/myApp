@@ -27,7 +27,6 @@ class User extends Model{
         else{
             $_SESSION['errors'][] = ['email' => ['un probléme est survenu lors de l`\'envoi du mail de confirmation contacter l\'administrateur']];
             header('Location: ' . REPERT . '/registration');
-            exit;
         }
 
     }

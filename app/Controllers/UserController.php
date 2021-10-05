@@ -62,7 +62,7 @@ class UserController extends Controller
         if($user){
             $token=sha1($user->id.$user->username.$user->email);
            
-            if($_GET['token'] == $token){
+            if(isset($_GET['token'])  && $_GET['token'] == $token){
     
                 //$user1 = new User($this->getDB());          
                 $data=['checked' => 1];
@@ -80,10 +80,9 @@ class UserController extends Controller
                 return header('Location: ' . REPERT . '/login');
             }
 
-        }else{
-            $exception = new NotFoundException();
-            return $exception->error404();
         }
+        $exception = new NotFoundException();
+        return $exception->error404();
     
     }
 

@@ -42,10 +42,10 @@ class BlogController extends Controller{
         if($post){
             return $this->view('blog.show', compact('post')); //Create array containing variables and their values
 
-        }else{
-            $exception = new NotFoundException();
-            return $exception->error404();
         }
+        $exception = new NotFoundException();
+        return $exception->error404();
+        
         /*
         $stmat = $this->db->getPDO()->prepare('SELECT * FROM posts WHERE id = ?');
         $stmat->execute([$id]);
@@ -63,7 +63,7 @@ class BlogController extends Controller{
         if ($errors) {
             $_SESSION['errors'][] = $errors;
             header('Location: ' . REPERT . '/posts//'.$id);
-            exit;
+            
         }
 
         $data = [
