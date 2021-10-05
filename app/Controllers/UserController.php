@@ -33,12 +33,10 @@ class UserController extends Controller
         if ($errors) {
             $_SESSION['errors'][] = $errors;
             header('Location: ' . REPERT . '/registration');
-            exit;
         }
         if((new User($this->getDB()))->getByUsername($_POST['username'])){
             $_SESSION['errors'][] = ['username' => ['Ce nom d\'utilisateur existe déjà']];
             header('Location: ' . REPERT . '/registration');
-            exit;
         }
 
         $data = [
