@@ -96,7 +96,6 @@ class UserController extends Controller
         if ($errors) {
             $_SESSION['errors'][] = $errors;
             header('Location: ' . REPERT . '/login');
-            exit;
         }
 
         $user = (new User($this->getDB()))->getByUsername($_POST['username']);
