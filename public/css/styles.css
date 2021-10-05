@@ -1,7 +1,3 @@
-.blue {
-    color: blue;
-}
-
 .me {
     float: right;
     width: 200px;
@@ -25,7 +21,7 @@
 	margin: 0px auto 20px auto;
 }
 
-.inner-banner{
+.inner-banner {
 	position: absolute;
 	top: 18%;
 	left: 0;
@@ -36,30 +32,31 @@
 .logo {
     width: 45%;
     margin-bottom: 10px;
-    filter: drop-shadow(10px 5px 5px #000000);
+    filter: drop-shadow(10px 5px 5px #000);
 }
 
 .titlePage {
-    text-shadow: 10px 5px 12px #000000;
+    text-shadow: 10px 5px 12px #000;
     color: #fff;
 }
 
-.inner-banner .btn-custom{
-	background-color: #0275D8;
+.inner-banner .btn-custom {
+	background-color: #0275d8;
 	color: #fff;
-	box-shadow: 2px 2px 30px #000000;
+	box-shadow: 2px 2px 30px #000;
 }
 
-.inner-banner .btn-custom:hover{
+.inner-banner .btn-custom:hover {
 	color: #2c3e50;
 }
+
 /* Début Google map */
-.google-map{
+.google-map {
 	padding-left: 0px;
 	padding-right: 0px;
 }
 
-.map-responsive{
+.map-responsive {
 	margin: 0;
 	overflow: hidden;
     padding-bottom: 20%;
@@ -67,14 +64,15 @@
     
 }
 
-.map-responsive iframe{
+.map-responsive iframe {
     left: 0;
     top: 0;
     height: 100%;
     width: 100%;
     position: absolute;
 }
+
 /* Fin Google map*/
-.liens{
+.liens {
     font-size: 22px;
 }
