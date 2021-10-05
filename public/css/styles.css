@@ -52,8 +52,8 @@
 
 /* Début Google map */
 .google-map {
-	padding-left: 0px;
-	padding-right: 0px;
+	padding-left: 0;
+	padding-right: 0;
 }
 
 .map-responsive {
@@ -61,7 +61,6 @@
 	overflow: hidden;
     padding-bottom: 20%;
     position: relative;
-    
 }
 
 .map-responsive iframe {
