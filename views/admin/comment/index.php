@@ -5,7 +5,7 @@
     <div class="alert alert-success">Vous êtes connecté !</div>
 <?php endif ?>
 
-<a href="<?= REPERT ?>/admin/posts/create" class="btn btn-success my-3">Créer un nouvel article</a>
+<a href="/admin/posts/create" class="btn btn-success my-3">Créer un nouvel article</a>
 <table class="table">
     <thead>
         <tr>
@@ -24,18 +24,18 @@
                 <td><?= htmlspecialchars($comment->getExcerpt()) ?></td>
                 <td><?= $comment->getCreatedAt() ?></td>
                 <td><?= htmlspecialchars($comment->getAuthor()->username) ?></td>
-                <td class="text-center"><a href="<?= REPERT ?>/posts/<?= $comment->post_id ?>"><?= $comment->post_id ?></a></td>
+                <td class="text-center"><a href="/posts/<?= $comment->post_id ?>"><?= $comment->post_id ?></a></td>
                 <td>
-                    <a href="<?= REPERT ?>/admin/comments/edit/<?= $comment->id ?>" class="btn btn-warning">Modifier</a>
-                    <form action="<?= REPERT ?>/admin/comments/delete/<?= $comment->id ?>" method="post" class="d-inline">
+                    <a href="/admin/comments/edit/<?= $comment->id ?>" class="btn btn-warning">Modifier</a>
+                    <form action="/admin/comments/delete/<?= $comment->id ?>" method="post" class="d-inline">
                     <button class="btn btn-danger">Supprimer</button>
                 </form>
                 <?php if ($comment->checked == 0) : ?>
-                    <form action="<?= REPERT ?>/admin/comments/checked/<?= $comment->id ?>" method="post" class="d-inline">
+                    <form action="/admin/comments/checked/<?= $comment->id ?>" method="post" class="d-inline">
                     <button class="btn btn-primary">Valider</button>
                 </form>
                 <?php else : ?>
-                    <form action="<?= REPERT ?>/admin/comments/nochecked/<?= $comment->id ?>" method="post" class="d-inline">
+                    <form action="/admin/comments/nochecked/<?= $comment->id ?>" method="post" class="d-inline">
                     <button class="btn btn-success">Checked</button>
                 </form>
                 <?php endif ?>

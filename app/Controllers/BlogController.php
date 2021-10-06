@@ -62,7 +62,7 @@ class BlogController extends Controller{
 
         if ($errors) {
             $_SESSION['errors'][] = $errors;
-            header('Location: ' . REPERT . '/posts//'.$id);
+            header('Location: /posts//'.$id);
             
         }
 
@@ -76,7 +76,7 @@ class BlogController extends Controller{
         $result = $comment->create($data);
 
         if($result) {
-            return header('Location: ' . REPERT . '/posts//'.$id.'?comment=created');
+            return header('Location: /posts//'.$id.'?comment=created');
         }
 
         $post = new Post($this->getDB());

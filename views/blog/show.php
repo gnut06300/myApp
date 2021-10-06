@@ -8,7 +8,7 @@ $titlePage = $params['post']->title ?>
     <h1>Article : <?= htmlspecialchars($params['post']->title) ?></h1>
     <div>
         <?php foreach ($params['post']->getTags() as $tag) : ?>
-            <span class="badge badge-success"><a href="<?= REPERT ?>/tags/<?= $tag->id ?>" class="text-white"><?= $tag->name ?></a></span>
+            <span class="badge badge-success"><a href="/tags/<?= $tag->id ?>" class="text-white"><?= $tag->name ?></a></span>
         <?php endforeach ?>
     </div>
     <p class="mt-3"><b><?= htmlspecialchars($params['post']->chapo) ?></b></p>
@@ -47,7 +47,7 @@ $titlePage = $params['post']->title ?>
 
             <?php endif ?>
         <?php else : ?>
-            <p>Vous devez être Enregistrer si vous voulez écrire un commentaire <a href="<?= REPERT ?>/login">se connecter</a> ou <a href="<?= REPERT ?>/registration">s'inscrire</a></p>
+            <p>Vous devez être Enregistrer si vous voulez écrire un commentaire <a href="/login">se connecter</a> ou <a href="/registration">s'inscrire</a></p>
         <?php endif ?>
     </div>
     <div class="col-12 col-sm-5"></div>
@@ -62,4 +62,4 @@ $titlePage = $params['post']->title ?>
     </div>
 <?php endforeach ?>
 
-<a href="<?= REPERT ?>/posts" class="mt-4 btn btn-secondary">Retouner en arrière</a>
+<a href="/posts" class="mt-4 btn btn-secondary">Retouner en arrière</a>

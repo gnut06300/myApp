@@ -16,7 +16,7 @@
 <?php session_destroy() ?>
 <h1>Formulaire d'inscription</h1>
 
-<form action="<?= REPERT ?>/registration" method="post">
+<form action="/registration" method="post">
     <div class="form-group">
         <label for="username">Nom d'utlisateur</label>
         <input type="text" class="form-control" name="username" id="username">

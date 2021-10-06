@@ -48,7 +48,7 @@ class PostController extends Controller {
         $result = $post->create($_POST, $tags);
 
         if($result) {
-            return header('Location: ' . REPERT . '/admin/posts');
+            return header('Location: /admin/posts');
         }
     }
 
@@ -87,7 +87,7 @@ class PostController extends Controller {
         $result = $post->update($id, $_POST, $tags);
 
         if($result) {
-            return header('Location: ' . REPERT . '/admin/posts');
+            return header('Location: /admin/posts');
         }
     }
 
@@ -99,7 +99,7 @@ class PostController extends Controller {
         $result = $post->destroy($id);
 
         if($result) {
-            return header('Location: ' . REPERT . '/admin/posts');
+            return header('Location: /admin/posts');
         }
     }
 }

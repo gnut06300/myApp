@@ -39,7 +39,7 @@ class CommentController extends Controller
         $result = $comment->update($id, $_POST);
 
         if($result) {
-            return header('Location: ' . REPERT . '/admin/comments');
+            return header('Location: /admin/comments');
         }   
     }
 
@@ -50,7 +50,7 @@ class CommentController extends Controller
         $result = $comment->destroy($id);
 
         if($result) {
-            return header('Location: ' . REPERT . '/admin/comments');
+            return header('Location: /admin/comments');
         }
     }
 
@@ -65,7 +65,7 @@ class CommentController extends Controller
         $result = $comment->update($id, $data);
 
         if($result) {
-            return header('Location: ' . REPERT . '/admin/comments');
+            return header('Location: /admin/comments');
         }
     }
 
@@ -80,7 +80,7 @@ class CommentController extends Controller
         $result = $comment->update($id, $data);
 
         if($result) {
-            return header('Location: ' . REPERT . '/admin/comments');
+            return header('Location: /admin/comments');
         }
     }
 }

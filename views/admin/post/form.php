@@ -1,7 +1,7 @@
 <?php isset($params['post']) ? $titlePage = 'Formulaire de modification' : $titlePage = 'Création d\'un article'; ?>
 <h1><?= $params['post']->title ?? 'Créer un nouvel article' ?></h1>
 
-<form action="<?= isset($params['post']) ? REPERT . "/admin/posts/edit/{$params['post']->id}" : REPERT . "/admin/posts/create" ?>" method="post">
+<form action="<?= isset($params['post']) ? "/admin/posts/edit/{$params['post']->id}" : "/admin/posts/create" ?>" method="post">
     <div class="form-group">
         <label for="title">Titre de l'article</label>
         <input type="text" class="form-control" name="title" id="title" value="<?= $params['post']->title ?? '' ?>">

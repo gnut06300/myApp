@@ -32,11 +32,13 @@ class UserController extends Controller
 
         if ($errors) {
             $_SESSION['errors'][] = $errors;
-            header('Location: ' . REPERT . '/registration');
+            header('Location: /registration');
+            exit;
         }
         if((new User($this->getDB()))->getByUsername($_POST['username'])){
             $_SESSION['errors'][] = ['username' => ['Ce nom d\'utilisateur existe déjà']];
-            header('Location: ' . REPERT . '/registration');
+            header('Location: /registration');
+            exit;
         }
 
         $data = [
@@ -49,7 +51,7 @@ class UserController extends Controller
         $result = $user->create($data);
 
         if($result) {
-            return header('Location: ' . REPERT . '/');
+            return header('Location: /');
         }
     }
 
@@ -69,13 +71,13 @@ class UserController extends Controller
         
                 if($result) {
                     $_SESSION['errors'][] = ['email' => ['Merci, votre email à bien été vérifié, votre inscription est finie']];
-                    return header('Location: ' . REPERT . '/login');
+                    return header('Location: /login');
                 }
     
             }else{
                 
                 $_SESSION['errors'][] = ['email' => ['Votre lien n\'est pas valide, veuillez contacter l\'administrateur']];
-                return header('Location: ' . REPERT . '/login');
+                return header('Location: /login');
             }
 
         }
@@ -88,14 +90,14 @@ class UserController extends Controller
     {
         $validator = new Validator($_POST);
         $errors = $validator->validate([
-            'username' => ['required', 'min:3'],
-            'password' => ['required', 'min:6']
+            'username' => ['required', 'min:3']
         ]);
 
         // var_dump($errors); die();
         if ($errors) {
             $_SESSION['errors'][] = $errors;
-            header('Location: ' . REPERT . '/login');
+            header('Location: /login');
+            exit;
         }
 
         $user = (new User($this->getDB()))->getByUsername($_POST['username']);
@@ -110,25 +112,25 @@ class UserController extends Controller
                     $_SESSION['user_id'] = (int) $user->id;
                     $_SESSION['auth'] = (int) $user->admin;
                     if ($_SESSION['auth'] === 1){
-                        return header('Location: ' . REPERT . '/admin/posts?success=true');
+                        return header('Location: /admin/posts?success=true');
                     }
                     elseif($_SESSION['auth'] === 0){
-                        return header('Location: ' . REPERT . '/');
+                        return header('Location: /');
                     }
                 }else{
                     $_SESSION['errors'][] = ['email' => ['Vous devez valider le lien de vérification de votre email avant de pouvoir vous connecter']];
                 
-                    return header('Location: ' . REPERT . '/login');
+                    return header('Location: /login');
                 }
             } else {
                 $_SESSION['errors'][] = [0 => ['Mauvais nom d\'utilisateur ou mot de passe']];
                 //var_dump($_SESSION['errors']);
-                return header('Location: ' . REPERT . '/login');
+                return header('Location: /login');
             }
         } else {
             $_SESSION['errors'][] = [0 => ['Mauvais nom d\'utilisateur ou mot de passe']];
             //var_dump($_SESSION['errors']);
-            return header('Location: ' . REPERT . '/login');
+            return header('Location: /login');
         }
     }
 
@@ -136,6 +138,6 @@ class UserController extends Controller
     {
         session_destroy();
 
-        return header('Location: ' . REPERT . '/');
+        return header('Location: /');
     }
 }

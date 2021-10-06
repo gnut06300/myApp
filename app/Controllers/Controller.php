@@ -41,6 +41,6 @@ abstract class Controller
         if (isset($_SESSION['auth']) && $_SESSION['auth'] === 1) {
            return true;
         }
-        return header('Location: ' . REPERT . '/login');
+        return header('Location: /login');
     }
 }

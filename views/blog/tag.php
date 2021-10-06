@@ -5,7 +5,7 @@
     ?>
     <div class="card mb-3">
         <div class="card-body">
-            <a href="<?= REPERT ?>/posts/<?= $post->id ?>"><?= $post->title ?></a>
+            <a href="/posts/<?= $post->id ?>"><?= $post->title ?></a>
         </div>
     </div>
 <?php endforeach ?>

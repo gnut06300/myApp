@@ -5,7 +5,7 @@
     <div class="alert alert-success">Vous êtes connecté !</div>
 <?php endif ?>
 
-<a href="<?= REPERT ?>/admin/posts/create" class="btn btn-success my-3">Créer un nouvel article</a>
+<a href="/admin/posts/create" class="btn btn-success my-3">Créer un nouvel article</a>
 
 <table class="table">
     <thead>
@@ -25,8 +25,8 @@
                 <td><?= $post->getCreatedAt() ?></td>
                 <td><?= htmlspecialchars($post->getAuthor()->username) ?></td>
                 <td>
-                    <a href="<?= REPERT ?>/admin/posts/edit/<?= $post->id ?>" class="btn btn-warning">Modifier</a>
-                    <form action="<?= REPERT ?>/admin/posts/delete/<?= $post->id ?>" method="post" class="d-inline">
+                    <a href="/admin/posts/edit/<?= $post->id ?>" class="btn btn-warning">Modifier</a>
+                    <form action="/admin/posts/delete/<?= $post->id ?>" method="post" class="d-inline">
                         <button class="btn btn-danger">Supprimer</button>
                     </form>
                 </td>

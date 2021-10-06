@@ -1,7 +1,7 @@
 <?php $titlePage = 'Formulaire de modification d\'un commentaire' ?>
-<h1>Modification du commentaire <?= $params['comment']->id ?> de <a href="<?= REPERT ?>/posts/<?= $params['comment']->post_id ?>">l'article <?= $params['comment']->post_id ?></a></h1>
+<h1>Modification du commentaire <?= $params['comment']->id ?> de <a href="/posts/<?= $params['comment']->post_id ?>">l'article <?= $params['comment']->post_id ?></a></h1>
 
-<form action="<?= REPERT ?>/admin/comments/edit/<?= $params['comment']->id ?>" method="post">
+<form action="/admin/comments/edit/<?= $params['comment']->id ?>" method="post">
     <div class="form-group">
         <label for="content">Contenu du commentaire</label>
         <textarea name="content" id="content" rows="8" class="form-control"><?= $params['comment']->content ?? '' ?></textarea>

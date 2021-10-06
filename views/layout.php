@@ -13,7 +13,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="<?= REPERT ?>/"><img class="logo_small" src="<?= SCRIPTS . 'pictures' . DIRECTORY_SEPARATOR . 'iwebprod_small.png' ?>" alt="Logo samll"></a>
+        <a class="navbar-brand" href="/"><img class="logo_small" src="<?= SCRIPTS . 'pictures' . DIRECTORY_SEPARATOR . 'iwebprod_small.png' ?>" alt="Logo samll"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -21,34 +21,34 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= REPERT ?>/"><i class="fas fa-home"></i> Accueil</a>
+                    <a class="nav-link" href="/"><i class="fas fa-home"></i> Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= REPERT ?>/posts"><i class="fas fa-blog"></i> Tous les articles</a>
+                    <a class="nav-link" href="/posts"><i class="fas fa-blog"></i> Tous les articles</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= REPERT ?>/contact"><i class="fas fa-file-contract"></i> Contact</a>
+                    <a class="nav-link" href="/contact"><i class="fas fa-file-contract"></i> Contact</a>
                 </li>
                 <?php if (isset($_SESSION['auth']) && $_SESSION['auth'] === 1) : ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= REPERT ?>/admin/posts"><i class="fas fa-user-lock"></i> Admin Articles</a>
+                        <a class="nav-link" href="/admin/posts"><i class="fas fa-user-lock"></i> Admin Articles</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= REPERT ?>/admin/comments"><i class="fas fa-user-lock"></i> Admin Commentaires</a>
+                        <a class="nav-link" href="/admin/comments"><i class="fas fa-user-lock"></i> Admin Commentaires</a>
                     </li>
                 <?php endif ?>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <?php if (isset($_SESSION['auth']) || isset($_SESSION['username'])) : ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= REPERT ?>/logout">Se déconnecter</a>
+                        <a class="nav-link" href="/logout">Se déconnecter</a>
                     </li>
                 <?php else : ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= REPERT ?>/registration"><i class="fas fa-registered"></i> S'inscrire</a>
+                        <a class="nav-link" href="/registration"><i class="fas fa-registered"></i> S'inscrire</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= REPERT ?>/login"><i class="fas fa-paperclip"></i> Se connecter</a>
+                        <a class="nav-link" href="/login"><i class="fas fa-paperclip"></i> Se connecter</a>
                     </li>
                 <?php endif; ?>
             </ul>

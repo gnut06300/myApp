@@ -21,7 +21,7 @@
 <?php session_destroy() ?>
 <h1>Se connecter</h1>
 
-<form action="<?= REPERT ?>/login" method="post">
+<form action="/login" method="post">
     <div class="form-group">
         <label for="username">Nom d'utlisateur</label>
         <input type="text" class="form-control" name="username" id="username">

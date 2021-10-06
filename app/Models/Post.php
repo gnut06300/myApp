@@ -25,9 +25,8 @@ class Post extends Model
 
     public function getButton(): string
     {
-        $repert = REPERT;
         return <<<HTML
-        <a href="$repert/posts/$this->id" class="btn btn-primary">Lire l'article</a>
+        <a href="/posts/$this->id" class="btn btn-primary">Lire l'article</a>
 HTML;
     }
 

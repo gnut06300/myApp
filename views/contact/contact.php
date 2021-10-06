@@ -24,7 +24,7 @@
                 <li>Votre message a bien été envoyé</li>
             </div>
         <?php endif ?>
-        <form action="<?= REPERT ?>/contact" method="post">
+        <form action="/contact" method="post">
             <div class="row">
                 <div class="form-group col-sm-6">
                     <label for="firstname">Prénom</label>

@@ -8,7 +8,7 @@
         <h2><?= htmlspecialchars($post->title) ?></h2>
         <div>
             <?php foreach($post->getTags() as $tag) : ?>
-                <span class="badge badge-success"><a href="<?= REPERT ?>/tags/<?= $tag->id ?>" class="text-white"><?= $tag->name ?></a></span>
+                <span class="badge badge-success"><a href="/tags/<?= $tag->id ?>" class="text-white"><?= $tag->name ?></a></span>
             <?php endforeach ?>
         </div>
         <small class="text-info">Publié le : <?= $post->getCreatedAt() ?> par </small><b><?= $post->getAuthor()->username ?></b>
