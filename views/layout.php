@@ -81,7 +81,7 @@
             </div>
             <div class="row">
                 <div class="col-12 col-sm-9 text-center">&copy; Copyright : <a href="https://iwebprod.fr">IWebProd.fr</a> - 2021</div>
-                <div class="col-12 col-sm-3 text-center"><a href="<?= REPERT ?>/admin/posts">Administration</a></div>
+                <div class="col-12 col-sm-3 text-center"><a href="/admin/posts">Administration</a></div>
             </div>
         </div>
     </footer>
