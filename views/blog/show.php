@@ -37,7 +37,7 @@ $titlePage = $params['post']->title ?>
                     <p><?= $_SESSION['username'] ?> ton commentaire à été enregistré, il sera validé au plus vite</p>
                 </div>
             <?php else : ?>
-                <form action="<?= REPERT . "/posts/{$params['post']->id}" ?>" method="post">
+                <form action="<?= "/posts/{$params['post']->id}" ?>" method="post">
                     <div class="form-group">
                         <label for="content">Rédiger votre commentaire</label>
                         <textarea name="content" id="content" rows="5" class="form-control"></textarea>
