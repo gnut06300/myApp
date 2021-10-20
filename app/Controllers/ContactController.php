@@ -23,6 +23,7 @@ class ContactController extends Controller
         if ($errors) {
             $_SESSION['errors'][] = $errors;
             header('Location: /contact');
+            exit;
         }
 
         //echo "<p>L'utilisateur ayant pour prénom : " . $_POST['firstname'] . " et pour nom " . $_POST['name'] . "<br> -Comme ". $_POST['username'] ."<br> -Comme Email : " . $_POST['email'] . "<br> -Son Message est : " . $_POST['message'] . "</p>" ; die();
