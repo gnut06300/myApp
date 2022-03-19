@@ -34,6 +34,7 @@
         <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/607803868?loop=1&autopause=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe></div>
     </div>
 </div>
+<script type="text/javascript" src="https://widgets.paper.li/live-content/init.js"></script><script>LiveContentWidget.show({"layout":"grid","count":4,"showLoadMore":true,"hideImage":false,"hideContent":false,"hideComment":false,"width":"100%","height":"100%","theme":"light","id":"56598ddf-4cdb-4a99-879a-d7219922d694"})</script>
 <h3>Hobbies :</h3>
 <p>Depuis plusieurs années je suis passioné par :
 <ul>

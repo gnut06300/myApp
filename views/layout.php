@@ -80,7 +80,7 @@
                 <div class="col-sm-6 text-center"><a class="liens" href="https://github.com/gnut06300"  rel="noreferrer" target="_blank"><i class="fab fa-github-square"> GitHub</i></a></div>
             </div>
             <div class="row">
-                <div class="col-12 col-sm-9 text-center">&copy; Copyright : <a href="https://iwebprod.fr">IWebProd.fr</a> - 2021</div>
+                <div class="col-12 col-sm-9 text-center">&copy; Copyright : <a href="https://iwebprod.fr">IWebProd.fr</a> - 2022</div>
                 <div class="col-12 col-sm-3 text-center"><a href="/admin/posts">Administration</a></div>
             </div>
         </div>
