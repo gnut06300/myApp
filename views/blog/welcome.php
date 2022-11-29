@@ -22,7 +22,7 @@
 <p>Ma création durant ma formation au Greta : <a href="http://gnut.eu/greta/bibliov2/" title="Ouvre le site de la bibliothèque du Parc Impérial dans une nouvelle fenêtre" target="_blank">La Bibliothèque Du Parc Impérial</a>.</p>
 <p>Mon dernier stage : <a href="https://escoffier.gnut.eu/" title="Ouvre le site du lycée professionel Auguste Escoffier dans une nouvelle fenêtre" target="_blank">Le lycée professionel Auguste Escoffier</a>.</p>
 </article>
-<p class="text-center"><a href="<?= SCRIPTS . 'documents' . DIRECTORY_SEPARATOR . 'cv_2021.pdf' ?>" download="cv_de_Mr_Gerald_Col.pdf" title="Télécharger mon CV" target="_blank"><button class="btn btn-primary">Mon CV</button></a></p>
+<p class="text-center"><a href="<?= SCRIPTS . 'documents' . DIRECTORY_SEPARATOR . 'CV_COL_Gerald_2022.pdf' ?>" download="CV_de_Mr_Gerald_Col_2022.pdf" title="Télécharger mon CV" target="_blank"><button class="btn btn-primary">Mon CV</button></a></p>
 <div class="row">
     <div class="col-sm-6 col-md-4 my-4">
         <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/607803175?loop=1&autopause=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe></div>
@@ -34,7 +34,8 @@
         <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/607803868?loop=1&autopause=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe></div>
     </div>
 </div>
-<script type="text/javascript" src="https://widgets.paper.li/live-content/init.js"></script><script>LiveContentWidget.show({"layout":"grid","count":4,"showLoadMore":true,"hideImage":false,"hideContent":false,"hideComment":false,"width":"100%","height":"100%","theme":"light","id":"56598ddf-4cdb-4a99-879a-d7219922d694"})</script>
+<h2 class="text-center my-4">Veille technologique</h2>
+<script type="text/javascript" src="https://widgets.paper.li/live-content/init.js"></script><script>LiveContentWidget.show({"layout":"grid","count":10,"showLoadMore":true,"hideImage":false,"hideContent":false,"hideComment":false,"width":"100%","height":"100%","theme":"light","id":"85d786cf-1a53-4645-a085-304ef6f83f30"})</script>
 <h3>Hobbies :</h3>
 <p>Depuis plusieurs années je suis passioné par :
 <ul>
